@@ -1,15 +1,21 @@
 const translator = require("./translator");
 
 exports.translateStrToMultiLangs = async (req, res) => {
-	const { str, languages, from } = req.body;
-
-	const data = await translator.translateStrToMultiLangs({ str, languages, from });
-	res.json(data);
+	try {
+		const { str, languages, from } = req.body;
+		const data = await translator.translateStrToMultiLangs({ str, languages, from });
+		res.json(data);
+	} catch (error) {
+		res.status(400).end();
+	}
 };
 
 exports.translateChunksToEnglish = async (req, res) => {
-	const { strs } = req.body;
-
-	const data = await translator.translateChunksToEnglish({ strs });
-	res.json(data);
+	try {
+		const { strs } = req.body;
+		const data = await translator.translateChunksToEnglish({ strs });
+		res.json(data);
+	} catch (error) {
+		res.status(400).end();
+	}
 };
