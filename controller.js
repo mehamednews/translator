@@ -6,6 +6,7 @@ exports.translateStrToMultiLangs = async (req, res) => {
 		const data = await translator.translateStrToMultiLangs({ str, languages, from });
 		res.json(data);
 	} catch (error) {
+		console.log(error);
 		res.status(400).end();
 	}
 };
