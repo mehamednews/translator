@@ -2,7 +2,7 @@ const translator = require("./translator");
 
 exports.translateStrToMultiLangs = async (req, res) => {
 	try {
-		const { str, languages, from } = req.body;
+		const { str, languages, from = "en" } = req.body;
 		const data = await translator.translateStrToMultiLangs({ str, languages, from });
 		res.json(data);
 	} catch (error) {

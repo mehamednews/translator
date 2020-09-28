@@ -1,8 +1,9 @@
 const express = require("express");
-const app = express();
+const bodyParser = require("body-parser");
 const cont = require("./controller");
 
-app.use(express.json());
+const app = express();
+app.use(bodyParser.json());
 
 app.post("/normal", cont.translateStrToMultiLangs);
 app.post("/chunks", cont.translateChunksToEnglish);
